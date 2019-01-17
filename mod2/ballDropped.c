@@ -19,7 +19,7 @@
 #include <math.h>
 // Constants
 const double GRAVITY = 9.8; // m/s^2
-const double BUILDING = 
+const double BUILDING = 100;
 // Function Prototypes
 
 // Main Function
@@ -27,12 +27,13 @@ int main()
 {
     double distance = 0;
     double time = 0;
+    double fromGround; 
     //Formula: s = 0.5 g t^2
     printf("Enter the time in seconds\n");
     scanf("%lf", &time);
     distance = (0.5 * GRAVITY * pow(time,2));
-    
-    printf("After %lf seconds it has fallen %lf meters.\n",time,distance);
+    fromGround = BUILDING - distance;
+    printf("After %lf seconds it has fallen %lf meters, and it is %lf meters from the ground.\n",time,distance,fromGround);
     return 0;
 }
 // Function Definitions
