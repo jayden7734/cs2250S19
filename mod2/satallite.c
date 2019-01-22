@@ -34,10 +34,13 @@ int main()
     //3)Display result
     printf("Enter the period in seconds\n");
     scanf("%lf",&time);
-    height = G * E_MASS * pow(time,2);
-    height = height/ (4 * pow(PI,2));
-    height = pow(height, 1/3);
-    height = height - E_RADIUS;
+  //  height = G * E_MASS * pow(time,2);
+   // height = height/ (4 * pow(PI,2));
+//    height = pow(height, 1/3);
+    
+   // height = pow(height, 1/3);
+   // height = height - E_RADIUS;
+    height = cbrt((Gravity * E_Mass * pow(time, 2)) / (4 * pow(PI,2))) - E_RADIUS;
     printf("At %lf seconds, the satellite will be %lf meters above Earth\n",time,height);
 
     return 0;
