@@ -27,14 +27,34 @@ int main()
     int angle;
     
     printf("Please enter an angle:\n");
-    scanf("%d",angle);
+    scanf("%d",&angle);
+
+    //Check for angles greater than 360
+
+    angle = angle % 360;
 
     if (angle > 0 && angle < 90)
     {
-        printf("This is quadrant 1.\n");
+        printf("\nThis is quadrant I.\n");
     }
-    
+    else if (angle > 90 && angle < 180)
+    {
+        printf("\nThis is quadrant II\n");
+    }
+    else if (angle > 180 && angle < 270)
+    {
+        printf("\nThis is quadrant III\n");
+    }
+    else if (angle > 270 && angle < 360)
+    {
+        printf("\nThis is quadrant IV\n");
+    }
+    else 
+    {
+        printf("\nThis angle is incorrect.\n");
+    }
     return 0;
+    
 }
 // Function Definitions
 
