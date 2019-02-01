@@ -107,10 +107,10 @@ int main()
             printf("Your water is boiling\n");
             break;
         case LIQUID:    
-            printf("Your water is frozen\n");
+            printf("Your water is liquid\n");
             break;
         case ICE:
-            printf("Your water is liquid\n");
+            printf("Your water is frozen\n");
             break;
     }
             return 0;
