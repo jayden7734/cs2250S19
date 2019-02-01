@@ -61,6 +61,7 @@ int main()
         
         
         printf("Sorry, you did not enter 0 or 1\n");
+        return 1;
     }
         
 
