@@ -31,12 +31,25 @@ int main()
     // 4: If user enters a number below MINCOUNT set it to MINCOUNT
     //    and if user enters a value greater than MAXCOUNT set it to it.
     int count = 0;
-    float grade, total, avg;
+    float grade, avg;
+    float total = 0;
     int student_Count = 0;
 
-    printf("Enter the number of graded assignments(between %d & %d:\n",MINCOUNT, MAXCOUNT);
+    printf("Enter the number of graded assignments(between %d & %d:\n",
+            MINCOUNT, MAXCOUNT);
     scanf("%d", &student_Count);
-
+    if(student_Count < MINCOUNT)
+    {
+        printf("%d is lower than %d. Setting your entry to %d.\n",student_Count,
+                MINCOUNT,MINCOUNT);
+        student_Count = MINCOUNT;
+    }
+    if(student_Count > MAXCOUNT)
+    {
+        printf("%d is higher than %d. Setting your entry to %d.\n",student_Count,
+                MAXCOUNT,MAXCOUNT);
+        student_Count = MAXCOUNT;
+    }
     while(count < student_Count)
     {
         printf("\nEnter %d hw grade(0-100):", count +1);
