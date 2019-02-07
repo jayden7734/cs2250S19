@@ -24,7 +24,7 @@
 #define MAXCOUNT 5
 #define MINGRADE 0
 #define MAXGRADE 100
-#define MAXSTUDENTS 3
+#define MAXSTUDENTS 30
 // Function Prototypes
 
 // Main Function
@@ -32,7 +32,7 @@ int main()
 {
     // 1: calculate the average of user inputs
     // 2: Validate that user input is from 0-100
-    // 3: Ask user for number of grades
+    // 3: Generate random data for how many value the need to enter
     // 4: If user enters a number below MINCOUNT set it to MINCOUNT
     //    and if user enters a value greater than MAXCOUNT set it to it.
     // 5: Support multiple student entries. Calculate class average
@@ -42,13 +42,17 @@ int main()
     float grade, avg;
     float total = 0, class_avg = 0;
     int Hw_count = 0;
+
+    srand(time(0));      //set random seed
     
-    while(student_count <= MAXSTUDENTS)                 //loop over students
+    for(student_count = 1; student_count <= MAXSTUDENTS; student_count++)
     {
         printf("Processing %d student grades\n", student_count);
         printf("Enter the number of graded assignments(between %d & %d:\n",
                 MINCOUNT, MAXCOUNT);
-        scanf("%d", &Hw_count);
+        //scanf("%d", &Hw_count);
+        Hw_count = rand () % 10;
+        printf("Homework count: [%d]\n", Hw_count);
         if(Hw_count < MINCOUNT)
         {
             printf("%d is lower than %d. Setting your entry to %d.\n",Hw_count,
@@ -61,11 +65,16 @@ int main()
                     MAXCOUNT,MAXCOUNT);
             Hw_count = MAXCOUNT;
         }
+        //loop over student grades
         while(grade_count < Hw_count)
         {
-            printf("\nEnter %d hw grade(%d-%d):", grade_count +1,MINGRADE,MAXGRADE);
-            scanf("%f", &grade);
-            if (grade <=0 || grade >= 100)
+            printf("\nEnter %d hw grades(%d-%d):\n", grade_count +1,MINGRADE,MAXGRADE);
+            //scanf("%f", &grade);
+            grade = rand()% 150; // get random # 0-150
+            grade = grade - (rand() % 100);
+            printf("Grade: [%f]\n",grade);
+            // "Randomly" make it negative
+            if (grade <=MINGRADE || grade >= MAXGRADE)
             {
                 printf("Invalid input. Please try again.\n");
                 continue; //Invalid input, but it keeps going 
@@ -84,7 +93,6 @@ int main()
         grade_count = 0;
         total = 0;
         
-        student_count++;
     } // end of students loop
     printf("Your class average is [%6.2f%%]\n", class_avg/MAXSTUDENTS);
     printf("\nBye amigo\n");
