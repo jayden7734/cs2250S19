@@ -32,6 +32,7 @@ int main()
     double maxOgden[NUM];
     double minOgden[NUM];
     double avg = 0, minTemp = 0, maxTemp = 0;
+    int minDay, maxDay;
     srand(time(0));
 
     printf("Simulating the max and min Ogden temps for the next %d days:\n",NUM);
@@ -49,25 +50,27 @@ int main()
         printf("%2d max[%6.2lf] and min[%6.2lf] temps in Ogden\n", i+1, maxOgden[i], minOgden[i]);
     }
         //Calculate the average and min and max of the date range
-    minTemp = minOgden[0];
+    minTemp = minOgden[0];   //initialize min and max Temp
     maxTemp = maxOgden[0];
     for(int i = 0; i < NUM; i++)
     {
         avg += minOgden[i];   //adding elements +=
         avg += maxOgden[i];
-        if(minOgden[i] < minTemp)
+        if(minOgden[i] < minTemp)   //find min
         {
             minTemp = minOgden[i];
+            minDay = i+1;
         }
-        if(maxOgden[i] > maxTemp)
+        if(maxOgden[i] > maxTemp)   //find max
         {
             maxTemp = maxOgden[i];
+            maxDay = i+1;
         }
     }
     
     avg = avg/(NUM * 2);
     printf("Your average temp is [%6.2lf]\n", avg);
-    printf("Your min is [%6.2lf] and max is [%6.2lf]\n", minTemp, maxTemp);
+    printf("Your min is [%6.2lf] on day %d and max is [%6.2lf] on day %d\n", minTemp,minDay, maxTemp, maxDay);
     
     return 0;
 }
