@@ -70,7 +70,7 @@ int main()
 
     if(choice == FAHRENHEIT) 
     {
-        if (in_temp > BOIL_F) 
+        if (in_temp >=  BOIL_F) 
         {
             water_state = BOIL;
         }
