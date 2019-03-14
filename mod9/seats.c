@@ -4,11 +4,20 @@
  * @created     : Tuesday Nov 13, 2018 15:12:48 UTC
  */
 #include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
 #include "seats.h"
 
 /*** Functions for Seat ***/
+char SeatsMenu()
+{
+    char input;
+        printf("Enter command: \n");
+        printf("\t To Print, press: p \n");
+        printf("\t For a reservation, press: r\n");
+        printf("\t To cancel reservation, press: c\n");
+        printf("\t To quit, press: q\n");
+        scanf(" %c", &input);
+    return input;
+}
 void SeatMakeEmpty(Seat* seat) 
 {
 //    strcpy((*seat).firstName, "empty");
@@ -35,16 +44,16 @@ void SeatsMakeEmpty(Seat seats[], int numSeats)
 {
     int i;
 
-    for (i = 0; i < numSeats; ++i) {
+    for (i = 0; i < numSeats; ++i) 
+    {
+        // Take the address of a Seat structure
         SeatMakeEmpty(&seats[i]);
     }
 }
 
 void SeatsPrint(Seat seats[], int numSeats) 
 {
-    int i;
-
-    for (i = 0; i < numSeats; ++i) {
+    for (int i = 0; i < numSeats; ++i) {
         printf("%d: ", i);
         SeatPrint(seats[i]);
     }
