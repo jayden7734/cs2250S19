@@ -27,18 +27,19 @@ struct TeleType
 {
     char name[MAXNAME];
     char phoneNum[MAXPHONE];
-    struct TeleType* nextaddr;  //"should" be the last member of the structer
+    struct TeleType* nextaddr;  //pointer of a stucture"should" be the
+                                //last member of that structure
 };
 typedef struct TeleType Tele;
 
 // Function Prototypes
-
+void DisplayTele(Tele* content);
 // Main Function
 int main()
 {
     Tele t1 = {"Acme, Junio", "(801) 891-2344"};
-    Tele t2 = {"Hall, John", "(801) 234-54-78"};
-    Tele t3 = {"Smith, Fred", "(801) 864-34-16"};
+    Tele t2 = {"Hall, John", "(801) 234-5478"};
+    Tele t3 = {"Smith, Fred", "(801) 864-3416"};
 
     Tele* first; //address of the structure
 
@@ -46,12 +47,19 @@ int main()
     t1.nextaddr = &t2; //set the address of the next structure right after the first
     t2.nextaddr = &t3;
     t3.nextaddr = NULL; // set the address of Null, last member
-    printf("%s\n%s\n%s\n", first->name, t1.nextaddr->name,
-            t2.nextaddr->name); // gets the value 
-                                                    //from the "first" address 
+    
+    DisplayTele(first); 
 
     return 0;
 }
 // Function Definitions
-
+void DisplayTele(Tele* content)
+{
+    while(content != NULL)
+    {
+        printf("%-30s %-20s\n", content->name, content->phoneNum);
+        content = content->nextaddr;
+    }
+    return;
+}
 
