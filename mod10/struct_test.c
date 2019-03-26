@@ -36,8 +36,9 @@ int main()
     emp.idNum = 12345;
     emp.ptPay = &pay;  //address of pay
 
-    printf("Employee %d was paid $%6.2lf\n", emp.idNum, *emp.ptPay);
-
+    printf("Employee %d was paid $%6.2lf\n", emp.idNum, *emp.ptPay); //the 
+                                            // * before dereferences the 
+                                            // pointer and gives the value
     return 0;
 }
 // Function Definitions
