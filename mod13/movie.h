@@ -21,6 +21,7 @@
 
 #include <iostream>
 #include <string>
+#include <ctype.h>
 using namespace std;
 
 class Movie
@@ -30,6 +31,7 @@ class Movie
         string title;
         int year;
         int stars;
+        string to_upper(string);
    // Anyone has access to it. Member functions are public
     public:
         // Constructors
@@ -45,6 +47,7 @@ class Movie
         int get_year() const;
         int get_stars() const;
         // Others
-       void info() const;
+        void info() const;
+        bool iequals(const Movie&);
 }; // end of Movie class
 #endif  /*#ifndef MOVIE__INC__ ----- */
